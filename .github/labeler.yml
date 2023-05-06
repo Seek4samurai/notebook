@@ -1,0 +1,18 @@
+"review needed :eyes:":
+  - src/**/*
+
+"documentation :book:":
+  - README.md
+
+"tooling :wrench:":
+  - .github/**/*
+
+"dependencies :package:":
+  - package.json
+  - package.lock.json
+
+"others:fountain_pen:":
+  - public/**/*
+
+"git:date:":
+  - .gitignore
