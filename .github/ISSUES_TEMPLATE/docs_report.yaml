@@ -1,0 +1,50 @@
+name: Docs issue
+description: Issues regarding documentation or improvements
+title: Docs issue
+labels: ["Docs :bug:"]
+body:
+  - type: textarea
+    id: report_description
+    attributes:
+      label: Describe the issue
+      description: A brief description of what the issue is
+    validations:
+      required: true
+  - type: textarea
+    id: report_reproduce
+    attributes:
+      label: To reproduce
+      description: Steps to reproduce the issue
+      value: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See the error
+    validations:
+      required: true
+  - type: textarea
+    id: report_expected_behavior
+    attributes:
+      label: Improvement scope
+      description: A clear description of what improvements are needed
+    validations:
+      required: true
+  - type: textarea
+    id: report_setup
+    attributes:
+      label: System Info (information regarding your system/os)
+      placeholder: |
+        - OS: [e.g. iOS]
+        - Browser: [e.g. chrome, safari]
+        - Version: [e.g. 22]
+  - type: checkboxes
+    id: report_work_on
+    attributes:
+      label: are you working on this issue?
+      options:
+        - label: "Yes"
+          required: false
+        - label: "No"
+          required: false
+    validations:
+      required: true
