@@ -1,0 +1,48 @@
+.Card {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0.8rem;
+  border-radius: 5px;
+  background-color: #212529;
+}
+.SubSection {
+  width: 60%;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+
+  color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #343a40;
+  background-color: #212529;
+}
+.Bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 1rem;
+}
+.Btn {
+  margin: 0 0.4rem;
+  height: fit-content;
+  padding: 0.45rem;
+
+  color: #f8f9fa;
+  border-radius: 5px;
+  border: 1px solid #343a40;
+  background-color: #121415;
+  transition: all 0.2s;
+}
+.Btn:hover {
+  border: 1px solid #454c53;
+  background-color: #343a40;
+}
+.About {
+  font-size: 18px;
+  padding: 1rem;
+}
+.ContentContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

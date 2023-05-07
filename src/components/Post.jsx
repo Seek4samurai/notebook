@@ -1,53 +1,45 @@
-import React, { useEffect, useState } from "react";
-import { auth, db } from "../lib/firebaseConfig";
+import React from "react";
 
-function Post() {
-  const [currentUser, setCurrentUser] = useState();
-  const [mappableData, setMappableData] = useState([]);
+import style from "../styles/Post.module.css";
 
-  // Getting active user --------------------------------------------------
-  const fetchUser = async () => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setCurrentUser(user);
-      }
-    });
+const Post = (props) => {
+  const handleClick = () => {
+    let box = document.getElementById(`Container_${props.idx}`);
+    let btn = document.getElementById(`Btn_${props.idx}`);
+
+    if (box.style.height !== "fit-content") {
+      box.style.height = "fit-content";
+      btn.innerText = "Collapse";
+    } else {
+      box.style.height = "200px";
+      btn.innerText = "Expand";
+    }
   };
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  // Getting posts --------------------------------------------------------
-  const fetchFeed = async () => {
-    let collectionSnapshot = (await db.collection("posts")).get();
-    let collectionData = (await collectionSnapshot).docs.map((doc) => {
-      return [doc.id, doc.data()];
-    });
-
-    setMappableData(collectionData);
-  };
-
-  useEffect(() => {
-    fetchFeed();
-  }, []);
 
   return (
     <>
-      <div>
-        <h3>Recent activity...</h3>
-        {mappableData.map((entry, idx) => {
-          return (
-            <>
-              <div key={idx} className="m-2 p-2 border rounded">
-                <h4 className="text-break">{entry[1].message}</h4>
-                <p className="text-break">{entry[1].description}</p>
-              </div>
-            </>
-          );
-        })}
+      <div className={style.Container}>
+        <div>
+          <div className={style.Heading}>{props.data.title}</div>
+          <div className={style.Tagline}>#{props.data.tagline}</div>
+          <div className={style.Description}>{props.data.description}...</div>
+          <div className={style.Data} id={"Container_" + props.idx}>
+            {props.data.data}
+          </div>
+        </div>
+        <div className={style.Bottom}>
+          <button
+            className={style.Btn}
+            id={"Btn_" + props.idx}
+            onClick={() => handleClick()}
+          >
+            Expand
+          </button>
+          <button className={style.Btn}>Contribute</button>
+        </div>
       </div>
     </>
   );
-}
+};
 
 export default Post;
